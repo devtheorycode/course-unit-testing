@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="./assets/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vite App</title>
+    <link rel="stylesheet" href="./assets/style.css" />
+  </head>
+  <body class="bg-gray-700">
+    <div id="app">
+      <div class="bg-gray-800 mx-auto my-auto items-center justify-center flex p-10">
+        <span class="text-5xl text-gray-100">Expense Tracker</span>
+      </div>
+      <div class="my-10 px-10 max-w-4xl mx-auto gap-10 sm:flex sm:justify-center">
+        <div class="w-full sm:w-1/2">
+          <h4 class="text-gray-300">Current Balance: <span id="balance">0.00€</span></h4>    
+          <div class="flex justify-between mx-0 my-5 p-5 bg-gray-800 shadow-sm divide-x">
+            <div class="flex-grow text-center">
+              <h4 class="text-gray-100 uppercase">Income</h4>
+              <p id="income" class="text-xl mx-0 my-1 tracking-wider text-green-500">0.00€</p>
+            </div>
+            <div class="flex-grow text-center">
+              <h4 class="text-gray-100 uppercase">Expense</h4>
+              <p id="expense" class="text-xl mx-0 my-1 tracking-wider text-red-500">0.00€</p>
+            </div>
+          </div>    
+          <h3 class="text-xl text-gray-300 border-b-2 pb-2">Add new transaction</h3>
+          <form id="newTransactionForm" class="mt-4">
+            <div>
+              <label for="text" class="block text-sm font-medium text-gray-300">Name</label>
+              <div class="mt-1">
+                <input type="text" name="text" id="text" class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm bg-gray-800 border-gray-900 text-gray-200 rounded-md" placeholder="Enter name..." />
+              </div>
+            </div>
+            <div class="mt-4">
+              <label for="amount" class="block text-sm font-medium text-gray-300">Amount</label>
+              <div class="mt-1">
+                <input type="number" name="amount" id="amount" class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm bg-gray-800 border-gray-900 text-gray-200 rounded-md" placeholder="Enter amount..." />
+              </div>
+            </div>
+            <button type="submit" class="mt-4 inline-flex items-center px-4 py-2 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+              Add transaction
+            </button>
+          </form>
+        </div>
+        <div class="w-full mt-10 sm:mt-0 sm:w-1/2">
+          <h3 class="text-xl text-gray-300 border-b-2 pb-2">History</h3>
+          <ul id="historyList" class="list-none mb-10 p-0"></ul>
+        </div>
+      </div>
+    </div>
+    <script type="module" src="/main.js"></script>
+  </body>
+</html>
