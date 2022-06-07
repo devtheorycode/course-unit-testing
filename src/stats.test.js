@@ -4,21 +4,9 @@ import { getBalance, getIncome, getExpense } from './stats'
 let transactions = null
 beforeEach(() => {
   transactions = [
-    {
-      id: 1,
-      text: 'Gain',
-      amount: 10
-    },    
-    {
-      id: 3,
-      text: 'Loss',
-      amount: -5
-    },    
-    {
-      id: 3,
-      text: 'Loss',
-      amount: -2
-    }
+    { id: 1, text: 'Gain', amount: 10 },    
+    { id: 3, text: 'Loss', amount: -5 },    
+    { id: 3, text: 'Loss', amount: -2 }
   ]
 })
 

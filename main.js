@@ -1,5 +1,6 @@
 import { generateID, addItemToArray, removeItemFromArray } from './src/utils'
 import { getBalance, getIncome, getExpense } from './src/stats'
+import { getFromStorage, setInStorage } from './src/storage'
 
 // DOM elements
 const balanceText = document.getElementById('balance')
@@ -11,7 +12,7 @@ const textInput = document.querySelector('#newTransactionForm input#text')
 const amountInput = document.querySelector('#newTransactionForm input#amount')
 
 // Init the data on the website
-let transactions = JSON.parse(localStorage.getItem('transactions')) ?? []
+let transactions = getFromStorage('transactions')
 transactions.forEach(addTransactionToDOM)
 updateStats()
 
@@ -34,7 +35,7 @@ newTransactionForm.addEventListener('submit', (e) => {
   addTransactionToDOM(newTransaction)
 
   updateStats()
-  updateLocalStorage()
+  saveTransactions()
 
   textInput.value = ''
   amountInput.value = ''
@@ -63,7 +64,7 @@ function addTransactionToDOM(transaction) {
   document.body.querySelector(`form[data-transaction-id="${transaction.id}"]`).addEventListener('submit', function (e) {
     e.preventDefault()
     removeTransaction(transaction)
-    updateLocalStorage()
+    saveTransactions()
     updateStats()
   })
 }
@@ -98,6 +99,6 @@ function updateStats() {
  * Update the local storage with the current transactions
  *
  */
-function updateLocalStorage() {
-  localStorage.setItem('transactions', JSON.stringify(transactions))
+function saveTransactions() {
+  setInStorage('transactions', transactions)
 }

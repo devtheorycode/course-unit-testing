@@ -2,10 +2,12 @@ import { test, expect, describe, beforeEach } from "vitest";
 import { generateID, addItemToArray, removeItemFromArray } from './utils'
 
 describe('generateID()', () => {
-  test('shoud be a string', () => {
+  test('should be a string', () => {
     let result = generateID()
     expect(result).toBeTypeOf('string')
   })
+  
+  test.todo('should be longer than 10 characters')
 })
 
 describe('addItemToArray()', () => {
