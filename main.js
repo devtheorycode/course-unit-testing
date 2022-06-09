@@ -12,7 +12,7 @@ const textInput = document.querySelector('#newTransactionForm input#text')
 const amountInput = document.querySelector('#newTransactionForm input#amount')
 
 // Init the data on the website
-let transactions = getFromStorage('transactions')
+let transactions = getFromStorage('transactions') ?? []
 transactions.forEach(addTransactionToDOM)
 updateStats()
 
